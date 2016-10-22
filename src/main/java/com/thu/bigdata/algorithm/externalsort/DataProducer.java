@@ -36,9 +36,9 @@ public class DataProducer {
 		for (long i = 1; i < numOfData; i++) {
 			val = nextData();
 			outputStream.writeLong(val);
-			if (numOfData % numOfFlush == 0) {
+			if (i % numOfFlush == 0) {
 				outputStream.flush();
-				System.out.println("flush:" + numOfData / numOfFlush);
+				System.out.println("flush:" + i / numOfFlush + "i = " + i);
 			}
 		}
 		outputStream.flush();
@@ -58,12 +58,11 @@ public class DataProducer {
 	public static void main(String[] args) throws Exception {
 		// 100MBflush一次
 		// splitnum is 100*2e17
-		// 16位
+		// 16位s
 		// 2e32
-		long size = (long) Math.pow(2, 31);
-		int flushsize = (int) Math.pow(2, 21);
-		System.out.println(Long.MAX_VALUE);
-		produceData((long) size, flushsize, "16G.data");
+		long size = (long) Math.pow(2, 4);
+		int flushsize = (int) Math.pow(2, 2);
+//		produceData((long) size, flushsize, "test.data");
 	}
 
 }
