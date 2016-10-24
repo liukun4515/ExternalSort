@@ -8,8 +8,8 @@ import java.io.IOException;
 public class DataProducer {
 
 	private static long currentValue;
-	private static int a = 3;
-	private static int c = 5;
+	private static long a = 3L;
+	private static long c = 5L;
 	private static long m = 1125899906842679L;
 	private static long beginValue = 2016213605L;
 
@@ -21,7 +21,7 @@ public class DataProducer {
 	 * @param filename
 	 * @throws IOException
 	 */
-	public static void produceData(long numOfData, int numOfFlush, String filename) throws IOException {
+	public static void produceData(long numOfData, long numOfFlush, String filename) throws IOException {
 		File file = new File(filename);
 		if (file.exists()) {
 			System.out.println(
@@ -60,8 +60,8 @@ public class DataProducer {
 		// splitnum is 100*2e17
 		// 16位s
 		// 2e32
-		long size = (long) Math.pow(2, 4);
-		int flushsize = (int) Math.pow(2, 2);
+		long size = (long) Math.pow(2, 31);
+		long flushsize = (int) Math.pow(2, 28);
 //		produceData((long) size, flushsize, "test.data");
 	}
 
