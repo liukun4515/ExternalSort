@@ -37,7 +37,7 @@ public class SortDataIntoFiles {
 		long temp = 0;
 		int numCountOfPerFile = (int) (sizeOfPerFile / perLong);
 		// produce split1
-		for (; count < 1; count++) {
+		for (; count < numCountOfPerFile; count++) {
 			randomlist.clear();
 			for (int i = 0; i < numCountOfPerFile; i++) {
 				try {
