@@ -84,10 +84,16 @@ public class MergeSort {
 		while (leftSize > 0) {
 			outputStream.writeLong(leftValue);
 			leftSize--;
+			if (leftSize>0) {
+				leftValue = leftstream.readLong();	
+			}
 		}
 		while (rightSize > 0) {
 			outputStream.writeLong(rightValue);
 			rightSize--;
+			if (rightSize>0) {
+				rightValue = rightstream.readLong();	
+			}
 		}
 		outputStream.flush();
 		outputStream.close();

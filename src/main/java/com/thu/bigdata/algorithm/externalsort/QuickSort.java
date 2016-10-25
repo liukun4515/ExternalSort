@@ -22,9 +22,8 @@ public class QuickSort {
 				sort[right] = sort[left];
 				right--;
 			}
-			sort[left] = key;
-
 		}
+		sort[left] = key;
 		return left;
 	}
 
@@ -36,15 +35,15 @@ public class QuickSort {
 			quickSort(sort, mid + 1, end);
 		}
 	}
-	
-	public static void display(long[] sort ,int begin,int end){
+
+	public static void display(long[] sort, int begin, int end) {
 		for (long l : sort) {
-			System.out.print(l+" ");
+			System.out.print(l + " ");
 		}
 	}
-	
+
 	public static void main(String[] args) {
-		
+
 	}
 
 }
