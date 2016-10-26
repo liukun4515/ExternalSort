@@ -1,5 +1,7 @@
 package com.thu.bigdata.algorithm.externalsort;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -61,20 +63,23 @@ public class MergeSort {
 			throw new ExternalSortException("The out file is exist");
 		}
 
-		DataInputStream leftstream = new DataInputStream(new FileInputStream(left));
-		DataInputStream rightstream = new DataInputStream(new FileInputStream(right));
-		DataOutputStream outputStream = new DataOutputStream(new FileOutputStream(outFile));
+		FileInputStream leftinputStream = new FileInputStream(left);
+		FileInputStream rightinputStream  = new FileInputStream(right);
+		DataInputStream leftstream = new DataInputStream(new BufferedInputStream(leftinputStream));
+		DataInputStream rightstream = new DataInputStream(new BufferedInputStream(rightinputStream));
+		FileOutputStream outputStream = new FileOutputStream(outFile);
+		DataOutputStream dataOutputStream = new DataOutputStream(new BufferedOutputStream(outputStream));
 		leftValue = leftstream.readLong();
 		rightValue = rightstream.readLong();
 		while (leftSize > 0 && rightSize > 0) {
 			if (leftValue < rightValue) {
-				outputStream.writeLong(leftValue);
+				dataOutputStream.writeLong(leftValue);
 				leftSize--;
 				if (leftSize > 0) {
 					leftValue = leftstream.readLong();
 				}
 			} else {
-				outputStream.writeLong(rightValue);
+				dataOutputStream.writeLong(rightValue);
 				rightSize--;
 				if (rightSize > 0) {
 					rightValue = rightstream.readLong();
@@ -82,11 +87,11 @@ public class MergeSort {
 			}
 		}
 		while (leftSize > 0) {
-			outputStream.writeLong(leftValue);
+			dataOutputStream.writeLong(leftValue);
 			leftSize--;
 		}
 		while (rightSize > 0) {
-			outputStream.writeLong(rightValue);
+			dataOutputStream.writeLong(rightValue);
 			rightSize--;
 		}
 		outputStream.flush();

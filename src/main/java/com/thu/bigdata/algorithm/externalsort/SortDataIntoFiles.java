@@ -1,5 +1,7 @@
 package com.thu.bigdata.algorithm.externalsort;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -32,12 +34,12 @@ public class SortDataIntoFiles {
 		}
 		System.out.println("The file length is " + lengthFile);
 		FileInputStream fileInputStream = new FileInputStream(file);
-		DataInputStream dataInputStream = new DataInputStream(fileInputStream);
+		DataInputStream dataInputStream = new DataInputStream(new BufferedInputStream(fileInputStream));
 		ArrayList<Long> randomlist = new ArrayList<>();
 		long temp = 0;
 		int numCountOfPerFile = (int) (sizeOfPerFile / perLong);
 		// produce split1
-		for (; count < numCountOfPerFile; count++) {
+		for (; count < numOfFile; count++) {
 			randomlist.clear();
 			for (int i = 0; i < numCountOfPerFile; i++) {
 				try {
@@ -66,7 +68,7 @@ public class SortDataIntoFiles {
 				System.out.println("The file is exist " + outputFile.getName() + ", and delete it");
 				outputFile.delete();
 			}
-			DataOutputStream outputStream = new DataOutputStream(new FileOutputStream(outputFile));
+			DataOutputStream outputStream = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(outputFile)));
 			for (long l : randomSequence) {
 				outputStream.writeLong(l);
 			}
@@ -77,6 +79,6 @@ public class SortDataIntoFiles {
 	}
 
 	public static void main(String[] args) throws ExternalSortException, IOException {
-		sortData(Constent.INPUT_FILE_NAME_16G, Constent.GB_1, "split");
+		sortData(Constent.INPUT_FILE_NAME_16G2, Constent.GB_1, "split");
 	}
 }

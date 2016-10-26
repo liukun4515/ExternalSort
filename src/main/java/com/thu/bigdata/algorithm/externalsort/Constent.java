@@ -3,6 +3,7 @@ package com.thu.bigdata.algorithm.externalsort;
 public class Constent {
 
 	public static final String INPUT_FILE_NAME_16G = "16G.data";
+	public static final String INPUT_FILE_NAME_16G2 = "16G2.data";
 	public static final long MB_100 = 100 * 1024 * 1024;
 	public static final long GB_1 = 1024 * 1024 * 1024;// 2e30 /8 2e27
 	public static final long GB_2 = 2 * GB_1;// 2e31 /8 2e28

@@ -1,5 +1,6 @@
 package com.thu.bigdata.algorithm.externalsort;
 
+import java.io.BufferedOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -29,11 +30,12 @@ public class DataProducer {
 			System.exit(0);
 		}
 		FileOutputStream out = new FileOutputStream(file);
-		DataOutputStream outputStream = new DataOutputStream(out);
+		BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(out);
+		DataOutputStream outputStream = new DataOutputStream(bufferedOutputStream);
 		long val;
 		val = begin();
 		outputStream.writeLong(val);
-		for (long i = 1; i < numOfData; i++) {
+		for (long i = 2; i <= numOfData; i++) {
 			val = nextData();
 			outputStream.writeLong(val);
 			if (i % numOfFlush == 0) {
@@ -52,7 +54,8 @@ public class DataProducer {
 	}
 
 	public static long begin() {
-		return currentValue = beginValue;
+		currentValue = beginValue;
+		return currentValue;
 	}
 
 	public static void main(String[] args) throws Exception {
@@ -62,7 +65,7 @@ public class DataProducer {
 		// 2e32
 		long size = (long) Math.pow(2, 31);
 		long flushsize = (int) Math.pow(2, 28);
-//		produceData((long) size, flushsize, "test.data");
+		produceData((long) size, flushsize, "16G2.data");
 	}
 
 }

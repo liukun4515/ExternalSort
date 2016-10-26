@@ -12,8 +12,8 @@ import org.junit.Test;
  */
 public class QuickSortTest {
 
-	private long[] randomSequence = { 2, 0, 43, -10, 88, 432432, 84, 55, 33 };
-	private long[] sortSequence = { -10, 0, 2, 33, 43, 55, 84, 88, 432432 };
+	private long[] randomSequence = { 2, 0, 43, -10, 88, 432432, 84, 55, 33 ,-30};
+	private long[] sortSequence = {-30, -10, 0, 2, 33, 43, 55, 84, 88, 432432 };
 
 	@Before
 	public void setUp() throws Exception {

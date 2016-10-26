@@ -22,9 +22,8 @@ public class QuickSort {
 				sort[right] = sort[left];
 				right--;
 			}
-			sort[left] = key;
-
 		}
+		sort[left] = key;
 		return left;
 	}
 
