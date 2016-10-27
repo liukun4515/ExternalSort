@@ -9,6 +9,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+
+import javax.sound.sampled.AudioFormat.Encoding;
 
 public class SortDataIntoFiles {
 
@@ -62,13 +65,16 @@ public class SortDataIntoFiles {
 				i++;
 			}
 			System.out.println("The randomSequence size is " + i);
-			QuickSort.quickSort(randomSequence, 0, randomSequence.length - 1);
+			// QuickSort.quickSort(randomSequence, 0, randomSequence.length -
+			// 1);
+			Arrays.sort(randomSequence);
 			File outputFile = new File(splitName + count);
 			if (outputFile.exists()) {
 				System.out.println("The file is exist " + outputFile.getName() + ", and delete it");
 				outputFile.delete();
 			}
-			DataOutputStream outputStream = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(outputFile)));
+			DataOutputStream outputStream = new DataOutputStream(
+					new BufferedOutputStream(new FileOutputStream(outputFile)));
 			for (long l : randomSequence) {
 				outputStream.writeLong(l);
 			}
@@ -79,6 +85,18 @@ public class SortDataIntoFiles {
 	}
 
 	public static void main(String[] args) throws ExternalSortException, IOException {
+		long begin, end;
+		begin = System.currentTimeMillis();
 		sortData(Constent.INPUT_FILE_NAME_16G2, Constent.GB_1, "split");
+		end = System.currentTimeMillis();
+		System.out.println(end - begin);
+		begin = System.currentTimeMillis();
+		MergeSort.main(null);
+		end = System.currentTimeMillis();
+		System.out.println(end - begin);
+		begin = System.currentTimeMillis();
+		HashProducer.main(null);
+		end = System.currentTimeMillis();
+		System.out.println(end - begin);
 	}
 }
