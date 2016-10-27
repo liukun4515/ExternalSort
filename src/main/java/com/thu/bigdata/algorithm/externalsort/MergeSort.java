@@ -100,8 +100,8 @@ public class MergeSort {
 				rightValue = rightstream.readLong();	
 			}
 		}
-		outputStream.flush();
-		outputStream.close();
+		dataOutputStream.flush();
+		dataOutputStream.close();
 		leftstream.close();
 		rightstream.close();
 		return out;

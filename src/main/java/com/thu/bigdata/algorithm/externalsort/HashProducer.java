@@ -1,5 +1,6 @@
 package com.thu.bigdata.algorithm.externalsort;
 
+import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -30,7 +31,7 @@ public class HashProducer {
 		long nextValue;
 		long currentHashValue;
 		long nextHashValue;
-		DataInputStream dataInputStream = new DataInputStream(new FileInputStream(inputFile));
+		DataInputStream dataInputStream = new DataInputStream(new BufferedInputStream(new FileInputStream(inputFile)));
 		if (inputSize > 0) {
 			currentValue = dataInputStream.readLong();
 			currentHashValue = currentValue;
@@ -40,7 +41,7 @@ public class HashProducer {
 					nextHashValue = (a * currentHashValue + nextValue) % m;
 					currentValue = nextValue;
 					currentHashValue = nextHashValue;
-					System.out.println(i);
+					// System.out.println(i);
 				} else {
 					System.out.println("The next is " + nextValue + ", the current is " + currentValue);
 					throw new ExternalSortException("The sorting is error in the " + i);

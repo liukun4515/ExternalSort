@@ -86,17 +86,21 @@ public class SortDataIntoFiles {
 
 	public static void main(String[] args) throws ExternalSortException, IOException {
 		long begin, end;
+		
 		begin = System.currentTimeMillis();
-		sortData(Constent.INPUT_FILE_NAME_16G2, Constent.GB_1, "split");
+		sortData(Constent.INPUT_FILE_NAME_16G, Constent.GB_1, "split");
 		end = System.currentTimeMillis();
+		
 		System.out.println(end - begin);
 		begin = System.currentTimeMillis();
 		MergeSort.main(null);
 		end = System.currentTimeMillis();
+		
 		System.out.println(end - begin);
 		begin = System.currentTimeMillis();
 		HashProducer.main(null);
 		end = System.currentTimeMillis();
+		
 		System.out.println(end - begin);
 	}
 }
