@@ -1,7 +1,5 @@
 package com.thu.bigdata.algorithm.externalsort;
 
-import static org.junit.Assert.assertArrayEquals;
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -56,6 +54,7 @@ public class AllTest {
 				steps[j] = dataInputStream.readLong();
 			}
 			Arrays.sort(steps);
+			filename = "testfile";
 			filename = filename+i;
 			list.add(filename);
 			File file2 = new File(filename);
