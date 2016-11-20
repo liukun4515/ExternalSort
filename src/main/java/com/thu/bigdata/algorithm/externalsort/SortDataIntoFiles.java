@@ -45,18 +45,20 @@ public class SortDataIntoFiles {
 		for (; count < numOfFile; count++) {
 			randomlist.clear();
 			for (int i = 0; i < numCountOfPerFile; i++) {
-				try {
-					temp = dataInputStream.readLong();
-					randomlist.add(temp);
-				} catch (IOException e) {
-					System.out.println("The numCountOfPerFile is " + numCountOfPerFile + ", the i is " + i);
-					System.out.println("The numOfFile is " + numOfFile + ", the count is " + count);
-					count = numOfFile;
-					i = numCountOfPerFile;
-					System.out.println("Finally: " + count);
-				} finally {
-
-				}
+				temp = dataInputStream.readLong();
+				randomlist.add(temp);
+//				try {
+//					temp = dataInputStream.readLong();
+//					randomlist.add(temp);
+//				} catch (IOException e) {
+//					System.out.println("The numCountOfPerFile is " + numCountOfPerFile + ", the i is " + i);
+//					System.out.println("The numOfFile is " + numOfFile + ", the count is " + count);
+//					count = numOfFile;
+//					i = numCountOfPerFile;
+//					System.out.println("Finally: " + count);
+//				} finally {
+//
+//				}
 			}
 			long[] randomSequence = new long[randomlist.size()];
 			int i = 0;
@@ -84,9 +86,13 @@ public class SortDataIntoFiles {
 		dataInputStream.close();
 	}
 
-	public static void main(String[] args) throws ExternalSortException, IOException {
+	public static void main(String[] args) throws Exception {
 		long begin, end;
 		
+//		begin = System.currentTimeMillis();
+//		DataProducer.main(null);;
+//		end = System.currentTimeMillis();
+//		System.out.println("produce "+(end-begin));
 		begin = System.currentTimeMillis();
 		sortData(Constent.INPUT_FILE_NAME_16G, Constent.GB_1, "split");
 		end = System.currentTimeMillis();

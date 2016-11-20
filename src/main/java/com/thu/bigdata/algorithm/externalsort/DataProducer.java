@@ -12,7 +12,8 @@ public class DataProducer {
 	private static long a = 3L;
 	private static long c = 5L;
 	private static long m = 1125899906842679L;
-	private static long beginValue = 2016213605L;
+//	private static long beginValue = 2016213605L;
+	private static long beginValue = 2016310569L;
 
 	/**
 	 * @param numOfData,
@@ -65,7 +66,7 @@ public class DataProducer {
 		// 2e32
 		long size = (long) Math.pow(2, 31);
 		long flushsize = (int) Math.pow(2, 28);
-		produceData((long) size, flushsize, "16G2.data");
+		produceData((long) size, flushsize, "16G.data");
 	}
 
 }
