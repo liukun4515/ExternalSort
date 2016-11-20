@@ -66,7 +66,7 @@ public class DataProducer {
 		// 2e32
 		long size = (long) Math.pow(2, 31);
 		long flushsize = (int) Math.pow(2, 28);
-		produceData((long) size, flushsize, "16G.data");
+		produceData((long) size, flushsize, Constent.INPUT_FILE_NAME_16G);
 	}
 
 }

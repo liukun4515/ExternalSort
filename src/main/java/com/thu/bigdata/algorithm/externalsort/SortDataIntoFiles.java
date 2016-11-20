@@ -89,10 +89,10 @@ public class SortDataIntoFiles {
 	public static void main(String[] args) throws Exception {
 		long begin, end;
 		
-//		begin = System.currentTimeMillis();
-//		DataProducer.main(null);;
-//		end = System.currentTimeMillis();
-//		System.out.println("produce "+(end-begin));
+		begin = System.currentTimeMillis();
+		DataProducer.main(null);;
+		end = System.currentTimeMillis();
+		System.out.println("produce "+(end-begin));
 		begin = System.currentTimeMillis();
 		sortData(Constent.INPUT_FILE_NAME_16G, Constent.GB_1, "split");
 		end = System.currentTimeMillis();
