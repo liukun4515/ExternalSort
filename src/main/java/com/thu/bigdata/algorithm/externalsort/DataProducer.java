@@ -12,8 +12,8 @@ public class DataProducer {
 	private static long a = 3L;
 	private static long c = 5L;
 	private static long m = 1125899906842679L;
-//	private static long beginValue = 2016213605L;
-	private static long beginValue = 2016310569L;
+	private static long beginValue = 2016213605L;
+
 
 	/**
 	 * @param numOfData,
