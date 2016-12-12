@@ -48,7 +48,7 @@ public class HashProducer {
 			dataInputStream.close();
 			FileWriter writer = new FileWriter(outputFile);
 			writer.write(String.valueOf(currentHashValue));
-			System.out.println("The result hash value is "+currentHashValue);
+			System.out.println("The result hash value is " + currentHashValue);
 			writer.close();
 		} else {
 			dataInputStream.close();

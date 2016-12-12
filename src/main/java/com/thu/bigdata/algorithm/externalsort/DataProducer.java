@@ -62,7 +62,7 @@ public class DataProducer {
 		// 2e32
 		long size = (long) Math.pow(2, 4);
 		int flushsize = (int) Math.pow(2, 2);
-//		produceData((long) size, flushsize, "test.data");
+		// produceData((long) size, flushsize, "test.data");
 	}
 
 }
